@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500&family=Caprasimo&family=Pacifico&family=Syne:wght@400;600;800&display=swap");
+
+* {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: #282828;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.clock {
+
+/* Decoration */
+  width: 30rem;
+  height: 30rem;
+  padding: 2rem;
+  border-radius: 50%;
+  border: 7px solid #282828;
+  box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+  color: #53dedf;
+  font-size: 2.5rem;
+
+  /* Clock items center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* so that the child of child use absolute so it will be according to clcok as clcok has relative */
+  position: relative;
+}
+
+.clock::after {
+
+/* for center as inside clcok there is nothing means all are absolute it means allitems will  be in center as absolute  put the elemnt out from normal flow */
+  content: " ";
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #464646;
+  box-shadow: 0 0 10px #464646;
+  position: absolute;
+}
+
+.needle {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.needle span {
+  height: var(--h);
+  width: var(--w);
+  background-color: var(--clr);
+  position: absolute;
+  border-radius: 50px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  position: absolute;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+  inset: 20px;
+}
+
+span {
+  transform: rotate(calc(-30deg * var(--i)));
+  display: inline-block;
+}
